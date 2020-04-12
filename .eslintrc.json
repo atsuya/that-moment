@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "google"],
+  "rules": {
+    "semi": 0,
+    "object-curly-spacing": ["error", "always"]
+  }
+}
