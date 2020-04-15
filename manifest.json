@@ -4,7 +4,9 @@
   "description": "A Chrome extension that stores specific moments of YouTube videos you keep coming back to.",
   "manifest_version": 2,
   "permissions": [
-    "declarativeContent"
+    "activeTab",
+    "declarativeContent",
+    "storage"
   ],
   "background": {
     "scripts": [
