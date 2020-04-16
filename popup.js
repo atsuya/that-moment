@@ -98,7 +98,15 @@
       return
     }
 
-    const textArea = document.getElementById('debug')
+    let textArea = document.getElementById('debug')
+    if (!textArea) {
+      textArea = document.createElement('textarea')
+      textArea.setAttribute('id', 'debug')
+      textArea.setAttribute('cols', '80')
+      textArea.setAttribute('rows', '10')
+      document.body.appendChild(textArea)
+    }
+
     textArea.value += `\n${message}`
   }
 
