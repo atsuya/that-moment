@@ -16,6 +16,8 @@ When Page Action is triggered, it uses [Storage API](https://developer.chrome.co
 
 When Page Action is triggered, it should automatically grab the current timestamp from the YouTube watch page. The timestamp grabbed can be pre-populated for a user to store the timestamp.
 
+There also should be a keyboard shortcut to click on stored timestamps.
+
 ## Better UI
 
 I'm not an artist by any mean, obviously. When a lot of timestamps are stored for a YouTube video, the list of the timestamps simply grows. Nothing is done to accommodate the situation currently.
