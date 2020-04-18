@@ -6,8 +6,12 @@
   // quite a hack, but oh well
   'use strict'
 
+  // set this variable to true to enable debugging
   const DEBUGGING = false
 
+  /**
+   * @private
+   */
   const EMPTY_MOMENT = {
     t: [],
   }
@@ -87,7 +91,8 @@
     try {
       moment = await getMoment(videoId)
     } catch (exception) {
-      debug(`Failed to retrieve moment at removeTimestamp: ${exception.message}`)
+      debug(
+          `Failed to retrieve moment at removeTimestamp: ${exception.message}`)
       throw exception
     }
     debug(`moment: ${JSON.stringify(moment)}`)
@@ -107,7 +112,8 @@
       await setMoment(videoId, moment)
       showMoment(moment)
     } catch (exception) {
-      debug(`Failed to set a new moment at removeTimestamp: ${exception.message}`)
+      debug(
+          `Failed to set a new moment at removeTimestamp: ${exception.message}`)
     }
   }
 
@@ -164,21 +170,6 @@
   }
 
   /**
-   * Logs debug messages.
-   * @param {string} message Message.
-   */
-  function debug(message) {
-    if (!DEBUGGING) {
-      return
-    }
-
-    const textArea = document.getElementById('debug-console')
-    textArea.setAttribute('style', 'display: block')
-
-    textArea.value += `\n${message}`
-  }
-
-  /**
    * Handles an event generated when a timestamp button is clicked.
    */
   async function timestampAddButtonClicked() {
@@ -187,19 +178,12 @@
     debug(`timestampRaw: ${timestampRaw}`)
 
     // put this part as its own validation function
-    let timestamp = 0
+    let timestamp
     try {
-      timestamp = parseInt(timestampRaw)
+      timestamp = convertTimestamp(timestampRaw)
     } catch (exception) {
-      debug(`Failed to parseInt: ${exception.message}`)
-    }
-
-    if (isNaN(timestamp)) {
+      debug(`Failed to convert timestamp: ${exception.message}`)
       return
-    }
-
-    if (timestamp < 0) {
-      timestamp = 0
     }
     debug(`timestamp: ${timestamp}`)
 
@@ -269,17 +253,51 @@
   }
 
   /**
+   * Converts a timestamp to integer.
+   * @param {Object} timestamp Timestamp either in string or integer.
+   * @return {number} Timestamp in positive integer.
+   */
+  function convertTimestamp(timestamp) {
+    let converted
+    try {
+      converted = parseInt(timestamp)
+    } catch (exception) {
+      debug(`Failed to convert timestamp to int: ${exception.message}`)
+      throw exception
+    }
+
+    if (isNaN(converted)) {
+      throw new Error('Not a number')
+    }
+
+    if (converted < 0) {
+      throw new Error('Timestamp cannot be a negative integer')
+    }
+
+    return converted
+  }
+
+  /**
    * Handles an event generated when a timestamp is clicked.
    * @param {!Object} event Event.
    */
   function timestampClicked(event) {
     const timestamp = event.target.dataset.timestamp
+
     // make sure to validate that the timestamp is integer
-    debug(`timestampClicked: ${timestamp}`)
+    let sanitizedTimestamp
+    try {
+      sanitizedTimestamp = convertTimestamp(timestamp)
+    } catch (exception) {
+      debug(`Failed to convert timestamp: ${exception.message}`)
+      return
+    }
+
+    debug(`timestampClicked: ${sanitizedTimestamp}`)
 
     chrome.tabs.executeScript(
         {
-          code: `window.location = "#t=${timestamp}";`,
+          code: `window.location = "#t=${sanitizedTimestamp}";`,
         },
         () => {
           debug('done executing')
@@ -302,6 +320,22 @@
     }
   }
 
+  /**
+   * Logs debug messages.
+   * @param {string} message Message.
+   */
+  function debug(message) {
+    if (!DEBUGGING) {
+      return
+    }
+
+    const textArea = document.getElementById('debug-console')
+    textArea.setAttribute('style', 'display: block')
+
+    textArea.value += `\n${message}`
+  }
+
+  // main
   window.addEventListener('DOMContentLoaded', async () => {
     initializePage()
 
