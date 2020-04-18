@@ -2,24 +2,21 @@
 <html>
   <head>
     <title>Store that moment</title>
-    <style>
-    body {
-      overflow: hidden;
-      margin: 0px;
-      padding: 0px;
-      background: white;
-    }
-    </style>
+    <link rel="stylesheet" href="popup.css">
   </head>
   <body>
-    <h1>Moments</h1>
+    <div class="container">
+      <h1 class="header">Moments</h1>
 
-    <ul id="moment-list"></ul>
+      <ul id="moment-list"></ul>
 
-    <input id="new-moment-timestamp" type="text">
-    <button id="new-moment-add">Add</button>
+      <div class="new-moment-form">
+        <input id="new-moment-timestamp" type="number" placeholder="In seconds" min="0" max="36000">
+        <button id="new-moment-add-button">Add</button>
+      </div>
 
-    <textarea id="debug" cols="80" rows="10"></textarea>
+      <textarea id="debug-console" cols="20" rows="10"></textarea>
+    </div>
 
     <script src="popup.js"></script>
   </body>
