@@ -1,3 +1,7 @@
+/**
+ * Licensed under MIT
+ * (https://github.com/atsuya/that-moment/blob/master/LICENSE)
+ */
 'use strict'
 
 chrome.runtime.onInstalled.addListener(() => {

@@ -1,3 +1,7 @@
+/**
+ * Licensed under MIT
+ * (https://github.com/atsuya/that-moment/blob/master/LICENSE)
+ */
 (() => {
   // quite a hack, but oh well
   'use strict'
