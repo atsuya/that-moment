@@ -4,3 +4,95 @@ body {
   padding: 0px;
   background: white;
 }
+
+.container {
+  box-sizing: border-box;
+  width: 200px;
+}
+
+.header {
+  margin: 0px;
+  padding: 15px;
+  background-color: #eeeeee;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+#moment-list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+#moment-list li {
+  margin: 10px;
+  padding: 10px;
+  border-radius: .25em;
+  background-color: #ffffff;
+  border: 1px solid rgba(0,0,0,.125);
+  text-align: center;
+  vertical-align: middle;
+}
+
+#moment-list li:hover {
+  background-color: #f8f9fa;
+}
+
+.timestamp-seconds-container {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 130px;
+  text-align: left;
+}
+
+.timestamp-seconds {
+}
+
+.timestamp-remove-container {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 20px;
+  text-align: right;
+}
+
+.timestamp-remove {
+  text-align: right;
+  text-decoration: none;
+  color: #000000;
+}
+
+.new-moment-form {
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#new-moment-timestamp {
+  width: 99px;
+  height: 1.8em;
+  border-radius: .25em;
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid #ced4da;
+  padding-left: 5px;
+}
+
+#new-moment-add-button {
+  margin-left: 10px;
+  width: 60px;
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 0.25em;
+  border-color: #007bff;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  line-height: 1.5;
+  height: 1.8em;
+}
+
+#debug-console {
+  display: none;
+  padding: 10px;
+}
