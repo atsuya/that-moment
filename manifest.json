@@ -1,7 +1,7 @@
 {
-  "name": "that-moment",
+  "name": "that moment",
   "version": "0.1.0",
-  "description": "A Chrome extension that stores specific moments of YouTube videos you keep coming back to.",
+  "description": "A Chrome extension that remembers specific moments of YouTube videos you keep coming back to.",
   "manifest_version": 2,
   "permissions": [
     "activeTab",
@@ -21,7 +21,7 @@
       "48": "images/icon-48.png",
       "128": "images/icon-128.png"
     },
-    "default_title": "that-moment",
+    "default_title": "that moment",
     "default_popup": "popup.html"
   },
   "icons": {
