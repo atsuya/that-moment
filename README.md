@@ -3,11 +3,21 @@
 A Chrome extension that remembers specific moments of YouTube videos you keep coming back to.
 
 
+# Download
+
+You can download it on [Chrome Web Store](https://chrome.google.com/webstore/detail/that-moment/ccalocphkncpoifkgfajcebdaomgicfe/related).
+
+
 # How it works
 
 It employs [Background Scripts](https://developer.chrome.com/extensions/background_pages) to trigger [Page Actions](https://developer.chrome.com/extensions/pageAction) only when a user visits a YouTube watch page.
 
 When Page Action is triggered, it uses [Storage API](https://developer.chrome.com/extensions/storage) to retrieve and store timestamps that you enter for a specific YouTube video. It uses `storage.sync` so the timestamps should be synced across Chrome that you signed in.
+
+
+# Source code
+
+Source code is available on [GitHub](https://github.com/atsuya/that-moment).
 
 
 # Need improvements
