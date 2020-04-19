@@ -5,7 +5,7 @@ A Chrome extension that remembers specific moments of YouTube videos you keep co
 
 # Download
 
-You can download it on [Chrome Web Store](https://chrome.google.com/webstore/detail/that-moment/ccalocphkncpoifkgfajcebdaomgicfe/related).
+You can download it on [Chrome Web Store](https://chrome.google.com/webstore/detail/that-moment/ccalocphkncpoifkgfajcebdaomgicfe/).
 
 
 # How it works
